@@ -20,13 +20,19 @@ const Stopwatch = () => {
         }
     }, [running]);
 
+    const formatTime = (seconds) => {
+        const minutes = Math.floor(seconds/60);
+        const secondsLeft = seconds%60;
+        return `${minutes}:${secondsLeft < 10 ? '0' : ''}${secondsLeft}`;
+    };
+
     return (
         <div>
             <h1>Stopwatch</h1>
-            <p>Time: {time}</p>
+            <p>Time: {formatTime(time)}</p>
             {!running ? <button type='button' onClick={handleChange}>Start</button>
             : <button type='button' onClick={handleChange}>Stop</button>}
-            <button onClick={()=>{setTime(0)}}>Restart</button>
+            <button onClick={()=>{setTime(0);setRunning("false");}}>Restart</button>
         </div>
     );
 
