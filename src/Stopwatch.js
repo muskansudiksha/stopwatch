@@ -32,7 +32,7 @@ const Stopwatch = () => {
             <p>Time: {formatTime(time)}</p>
             {!running ? <button type='button' onClick={handleChange}>Start</button>
             : <button type='button' onClick={handleChange}>Stop</button>}
-            <button onClick={()=>{setTime(0);setRunning("false");}}>Restart</button>
+            <button onClick={()=>{setTime(0);setRunning("false");}}>Reset</button>
         </div>
     );
 
